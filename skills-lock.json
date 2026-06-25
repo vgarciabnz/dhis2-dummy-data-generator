@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "dhis2-apps": {
+      "source": "dhis2/ai-devtools",
+      "sourceType": "github",
+      "skillPath": "src/skills/dhis2-apps/SKILL.md",
+      "computedHash": "1e0937be16cf5174603c750d0372008c50a3dd72bd130d47ec72d32cbcb31ece"
+    },
+    "grill-me": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "skillPath": "skills/productivity/grill-me/SKILL.md",
+      "computedHash": "f321507f77702a54af1db66549ec1685fc625390d06c57d7949cdcda8eb1b5c7"
+    }
+  }
+}

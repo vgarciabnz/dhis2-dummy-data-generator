@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacers-dp8);
+}
+
+.label {
+    margin: 0 0 var(--spacers-dp4);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--colors-grey800);
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacers-dp12);
+}
+
+.stageName {
+    font-size: 14px;
+    color: var(--colors-grey700);
+    min-width: 180px;
+}
+
+.fixedCount {
+    font-size: 13px;
+    color: var(--colors-grey600);
+}

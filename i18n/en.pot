@@ -1,0 +1,116 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2026-06-19T12:09:51.591Z\n"
+"PO-Revision-Date: 2026-06-19T12:09:51.591Z\n"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Error loading the data elements"
+msgstr "Error loading the data elements"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Domain"
+msgstr "Domain"
+
+msgid "Value Type"
+msgstr "Value Type"
+
+msgid "Created by"
+msgstr "Created by"
+
+msgid "Tracker data"
+msgstr "Tracker data"
+
+msgid "Event data"
+msgstr "Event data"
+
+msgid "Aggregate data"
+msgstr "Aggregate data"
+
+msgid "Data generated successfully"
+msgstr "Data generated successfully"
+
+msgid "Import failed"
+msgstr "Import failed"
+
+msgid "{{n}} objects ignored"
+msgstr "{{n}} objects ignored"
+
+msgid "Validation errors ({{n}})"
+msgstr "Validation errors ({{n}})"
+
+msgid "... and {{n}} more errors"
+msgstr "... and {{n}} more errors"
+
+msgid "Generate more data"
+msgstr "Generate more data"
+
+msgid "Error loading organisation units"
+msgstr "Error loading organisation units"
+
+msgid "Could not load organisation units."
+msgstr "Could not load organisation units."
+
+msgid "Error loading programs"
+msgstr "Error loading programs"
+
+msgid "Could not load programs. Check your connection."
+msgstr "Could not load programs. Check your connection."
+
+msgid "Program"
+msgstr "Program"
+
+msgid "Select a tracker program"
+msgstr "Select a tracker program"
+
+msgid "Events per program stage"
+msgstr "Events per program stage"
+
+msgid "1 event"
+msgstr "1 event"
+
+msgid "Generate Tracker Data"
+msgstr "Generate Tracker Data"
+
+msgid "Building payload…"
+msgstr "Building payload…"
+
+msgid "Submitting to DHIS2…"
+msgstr "Submitting to DHIS2…"
+
+msgid "Import job running…"
+msgstr "Import job running…"
+
+msgid "Error loading program details"
+msgstr "Error loading program details"
+
+msgid "Could not load program details."
+msgstr "Could not load program details."
+
+msgid "Organisation unit"
+msgstr "Organisation unit"
+
+msgid "Number of tracked entity instances"
+msgstr "Number of tracked entity instances"
+
+msgid "Generate data"
+msgstr "Generate data"
+
+msgctxt "Application title"
+msgid "__MANIFEST_APP_TITLE"
+msgstr "dhis2-dummy-data-generator"
+
+msgctxt "Application description"
+msgid "__MANIFEST_APP_DESCRIPTION"
+msgstr ""

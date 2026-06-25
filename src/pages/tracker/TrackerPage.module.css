@@ -1,0 +1,48 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacers-dp24);
+}
+
+.title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--colors-grey900);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacers-dp24);
+    max-width: 600px;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacers-dp8);
+}
+
+.fieldLabel {
+    margin: 0 0 var(--spacers-dp4);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--colors-grey700);
+}
+
+.loader {
+    padding: var(--spacers-dp8) 0;
+}
+
+.actions {
+    padding-block-start: var(--spacers-dp8);
+}
+
+.submitting {
+    display: flex;
+    align-items: center;
+    gap: var(--spacers-dp8);
+    color: var(--colors-grey700);
+    font-size: 14px;
+}

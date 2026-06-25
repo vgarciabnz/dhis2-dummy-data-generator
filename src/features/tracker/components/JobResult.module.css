@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacers-dp16);
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacers-dp4);
+    margin-block-start: var(--spacers-dp8);
+    font-size: 14px;
+}
+
+.ignored {
+    color: var(--colors-yellow900);
+}
+
+.errors {
+    border: 1px solid var(--colors-red200);
+    border-radius: 3px;
+    padding: var(--spacers-dp12);
+    background: var(--colors-red050);
+}
+
+.errorsTitle {
+    margin: 0 0 var(--spacers-dp8);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--colors-red900);
+}
+
+.errorList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacers-dp4);
+}
+
+.errorItem {
+    display: flex;
+    gap: var(--spacers-dp8);
+    font-size: 13px;
+    color: var(--colors-grey900);
+}
+
+.errorCode {
+    font-family: monospace;
+    color: var(--colors-red700);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.errorTrackerType {
+    color: var(--colors-grey600);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.moreErrors {
+    font-size: 13px;
+    color: var(--colors-grey600);
+    font-style: italic;
+}

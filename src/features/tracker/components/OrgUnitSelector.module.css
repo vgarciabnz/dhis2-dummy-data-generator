@@ -1,0 +1,12 @@
+.loading {
+    padding: var(--spacers-dp16);
+}
+
+.tree {
+    max-height: 320px;
+    overflow-y: auto;
+    border: 1px solid var(--colors-grey300);
+    border-radius: 3px;
+    padding: var(--spacers-dp8);
+    background: var(--colors-white);
+}
