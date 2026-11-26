@@ -1,4 +1,4 @@
-import { generateValue } from './generateValue'
+import { generateValue } from '@/features/shared/utils/generateValue'
 import { ProgramDetails } from '@/types/tracker'
 
 export type GenerationFormValues = {

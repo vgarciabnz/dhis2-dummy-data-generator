@@ -70,6 +70,20 @@ export type ProgramDetails = {
     programStages: ProgramStage[]
 }
 
+export type CategoryCombo = {
+    id: string
+    isDefault: boolean
+    categoryOptionCombos: { id: string; displayName: string }[]
+}
+
+/** Event program (WITHOUT_REGISTRATION): exactly one program stage. */
+export type EventProgramDetails = {
+    id: string
+    displayName: string
+    categoryCombo: CategoryCombo
+    programStages: ProgramStage[]
+}
+
 export type UserOrgUnit = {
     id: string
     path: string
