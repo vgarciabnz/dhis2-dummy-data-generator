@@ -3,8 +3,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createHashRouter, Outlet, RouterProvider } from 'react-router-dom'
 import { Layout } from '@/components/layout/Layout'
 import { PageWrapper } from '@/components/layout/PageWrapper'
-import { SyncUrlWithGlobalShell } from '@/utils/SyncUrlWithGlobalShell'
+import { EventPage } from '@/pages/event/EventPage'
 import { TrackerPage } from '@/pages/tracker/TrackerPage'
+import { SyncUrlWithGlobalShell } from '@/utils/SyncUrlWithGlobalShell'
 
 const queryClient = new QueryClient()
 
@@ -29,6 +30,10 @@ const router = createHashRouter([
                             {
                                 path: '/tracker',
                                 element: <TrackerPage />,
+                            },
+                            {
+                                path: '/event',
+                                element: <EventPage />,
                             },
                         ],
                     },

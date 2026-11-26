@@ -1,13 +1,14 @@
 import i18n from '@dhis2/d2-i18n'
 import { Button, CircularLoader, InputField, NoticeBox } from '@dhis2/ui'
 import { useState } from 'react'
-import styles from './TrackerPage.module.css'
-import { JobResult } from '@/features/tracker/components/JobResult'
-import { OrgUnitSelector } from '@/features/tracker/components/OrgUnitSelector'
-import { ProgramSelector } from '@/features/tracker/components/ProgramSelector'
+import styles from '../GeneratorPage.module.css'
+import { JobResult } from '@/features/shared/components/JobResult'
+import { OrgUnitSelector } from '@/features/shared/components/OrgUnitSelector'
+import { ProgramSelector } from '@/features/shared/components/ProgramSelector'
+import { useTrackerImport } from '@/features/shared/hooks/useTrackerImport'
 import { StageEventInputs } from '@/features/tracker/components/StageEventInputs'
 import { useProgramDetails } from '@/features/tracker/hooks/useProgramDetails'
-import { useTrackerImport } from '@/features/tracker/hooks/useTrackerImport'
+import { buildTrackerPayload } from '@/features/tracker/utils/buildPayload'
 
 export const TrackerPage = () => {
     const [programId, setProgramId] = useState('')
@@ -41,12 +42,15 @@ export const TrackerPage = () => {
 
     const handleSubmit = () => {
         if (!program || !orgUnit) {return}
-        submit(program, {
+        const formValues = {
             programId: program.id,
             orgUnitId: orgUnit.id,
             teiCount,
             stageEventCounts,
-        })
+        }
+        submit((fetchUids) =>
+            buildTrackerPayload(program, formValues, fetchUids)
+        )
     }
 
     const handleReset = () => {
@@ -83,6 +87,8 @@ export const TrackerPage = () => {
             <div className={styles.form}>
                 <section className={styles.section}>
                     <ProgramSelector
+                        programType="WITH_REGISTRATION"
+                        placeholder={i18n.t('Select a tracker program')}
                         value={programId}
                         onChange={handleProgramChange}
                     />

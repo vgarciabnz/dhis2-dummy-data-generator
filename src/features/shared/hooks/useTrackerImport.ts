@@ -1,11 +1,12 @@
 import { useDataEngine } from '@dhis2/app-runtime'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useRef, useState } from 'react'
-import {
-    buildTrackerPayload,
-    GenerationFormValues,
-} from '../utils/buildPayload'
-import { ImportReport, JobNotification, ProgramDetails } from '@/types/tracker'
+import { ImportReport, JobNotification } from '@/types/tracker'
+
+export type FetchUids = (count: number) => Promise<string[]>
+
+/** Builds a /api/tracker import payload. Receives a helper to reserve UIDs. */
+export type PayloadBuilder = (fetchUids: FetchUids) => Promise<unknown>
 
 export type ImportPhase =
     | { phase: 'idle' }
@@ -22,7 +23,7 @@ export const useTrackerImport = () => {
 
     const jobId = state.phase === 'polling' ? state.jobId : undefined
 
-    const fetchUids = async (count: number): Promise<string[]> => {
+    const fetchUids: FetchUids = async (count) => {
         const res = await dataEngine.query({
             ids: { resource: 'system/id', params: { limit: count } },
         })
@@ -74,19 +75,12 @@ export const useTrackerImport = () => {
             )
     }, [notifications, state.phase, jobId, dataEngine])
 
-    const submit = async (
-        program: ProgramDetails,
-        formValues: GenerationFormValues
-    ) => {
+    const submit = async (buildPayload: PayloadBuilder) => {
         reportFetchedRef.current = false
 
         try {
             setState({ phase: 'building' })
-            const payload = await buildTrackerPayload(
-                program,
-                formValues,
-                fetchUids
-            )
+            const payload = await buildPayload(fetchUids)
 
             setState({ phase: 'submitting' })
             const res = await dataEngine.mutate({

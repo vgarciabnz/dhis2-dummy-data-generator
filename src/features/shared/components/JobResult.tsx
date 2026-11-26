@@ -3,20 +3,32 @@ import { Button, NoticeBox } from '@dhis2/ui'
 import styles from './JobResult.module.css'
 import { ImportReport } from '@/types/tracker'
 
+type StatType = 'TRACKED_ENTITY' | 'ENROLLMENT' | 'EVENT'
+
 type Props = {
     report: ImportReport
     onReset: () => void
+    /** Which per-type "created" counts to show. Defaults to all. */
+    statTypes?: StatType[]
 }
 
-export const JobResult = ({ report, onReset }: Props) => {
+const ALL_STAT_TYPES: StatType[] = ['TRACKED_ENTITY', 'ENROLLMENT', 'EVENT']
+
+export const JobResult = ({
+    report,
+    onReset,
+    statTypes = ALL_STAT_TYPES,
+}: Props) => {
     const isSuccess = report.status === 'OK'
     const errors = report.validationReport?.errorReports ?? []
 
-    const teiStats =
-        report.bundleReport?.typeReportMap?.TRACKED_ENTITY?.stats
-    const enrollmentStats =
-        report.bundleReport?.typeReportMap?.ENROLLMENT?.stats
-    const eventStats = report.bundleReport?.typeReportMap?.EVENT?.stats
+    const statsFor = (type: StatType) =>
+        statTypes.includes(type)
+            ? report.bundleReport?.typeReportMap?.[type]?.stats
+            : undefined
+    const teiStats = statsFor('TRACKED_ENTITY')
+    const enrollmentStats = statsFor('ENROLLMENT')
+    const eventStats = statsFor('EVENT')
 
     return (
         <div className={styles.container}>

@@ -69,10 +69,10 @@ export const Sidebar = ({
                         label={i18n.t('Tracker data')}
                         end
                     />
-                    <SidenavLink
+                    <SidebarNavLink
                         to="/event"
                         label={i18n.t('Event data')}
-                        disabled
+                        end
                     />
                     <SidenavLink
                         to="/aggregate"

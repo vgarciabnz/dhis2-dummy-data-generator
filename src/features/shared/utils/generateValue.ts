@@ -16,7 +16,7 @@ const randomDate = (start: Date, end: Date): string => {
     return new Date(ms).toISOString().slice(0, 10)
 }
 
-const randomDatetime = (start: Date, end: Date): string => {
+export const randomDatetime = (start: Date, end: Date): string => {
     const ms =
         start.getTime() + Math.random() * (end.getTime() - start.getTime())
     return new Date(ms).toISOString()

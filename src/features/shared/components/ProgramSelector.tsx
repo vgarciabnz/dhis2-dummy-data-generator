@@ -1,18 +1,21 @@
 import i18n from '@dhis2/d2-i18n'
-import {
-    NoticeBox,
-    SingleSelectField,
-    SingleSelectOption,
-} from '@dhis2/ui'
-import { useTrackerPrograms } from '../hooks/useTrackerPrograms'
+import { NoticeBox, SingleSelectField, SingleSelectOption } from '@dhis2/ui'
+import { ProgramType, usePrograms } from '../hooks/usePrograms'
 
 type Props = {
+    programType: ProgramType
+    placeholder: string
     value: string
     onChange: (programId: string) => void
 }
 
-export const ProgramSelector = ({ value, onChange }: Props) => {
-    const { programs, isLoading, error } = useTrackerPrograms()
+export const ProgramSelector = ({
+    programType,
+    placeholder,
+    value,
+    onChange,
+}: Props) => {
+    const { programs, isLoading, error } = usePrograms(programType)
 
     if (error) {
         return (
@@ -30,7 +33,7 @@ export const ProgramSelector = ({ value, onChange }: Props) => {
                 onChange(selected)
             }
             loading={isLoading}
-            placeholder={i18n.t('Select a tracker program')}
+            placeholder={placeholder}
             filterable
         >
             {programs.map((p) => (
